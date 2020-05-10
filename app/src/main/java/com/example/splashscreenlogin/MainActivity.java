@@ -2,19 +2,21 @@ package com.example.splashscreenlogin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Pair;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.splashscreenlogin.ui.login.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private static int TIMEOUT=3000;
+    private static int TIMEOUT=2700;
 
     Animation top,bottom;
     ImageView image;
@@ -42,9 +44,17 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent Loginactivity=new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(Loginactivity);
-                finish();
+                Intent intent = new Intent(MainActivity.this, LoginPage.class);
+
+                Pair[] pairs=new Pair[2];
+                pairs[0]=new Pair<View,String>(image,"logo_image");
+                pairs[1]=new Pair<View,String>(title,"logo_text");
+
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation(MainActivity.this,pairs);
+                    startActivity(intent,options.toBundle());
+                    finish();
+                }
             }
         },TIMEOUT);
     }
