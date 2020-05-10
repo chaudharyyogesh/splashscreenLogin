@@ -29,7 +29,6 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(LoginPage.this,SignUp.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
