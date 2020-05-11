@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -37,7 +38,7 @@ public class SignUp extends AppCompatActivity {
 
 
     public boolean validatefullname() {
-        String name = fullname.getEditText().getText().toString();
+        String name = fullname.getEditText().getText().toString().trim();
         if (name.isEmpty()) {
             fullname.setError("This field cannot be empty.");
             return false;
@@ -65,7 +66,7 @@ public class SignUp extends AppCompatActivity {
         }
     }
     public boolean validateuseremail() {
-        String useremail = email.getEditText().getText().toString();
+        String useremail = email.getEditText().getText().toString().trim();
         String emailpattern="[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (useremail.isEmpty()) {
             email.setError("This field cannot be empty.");
@@ -81,7 +82,7 @@ public class SignUp extends AppCompatActivity {
         }
     }
     public boolean validatepassword() {
-        String userpassword = getpassword.getEditText().getText().toString();
+        String userpassword = getpassword.getEditText().getText().toString().trim();
         String passwordpattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
         if (userpassword.isEmpty()) {
             getpassword.setError("This field cannot be empty.");
@@ -115,11 +116,15 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void toValidate(View v){
-        validatefullname();
-        validateusername();
-        validateuseremail();
-        validatepassword();
-        validateretypepassword();
+        if(validatefullname() &&  validateusername() && validateuseremail() && validatepassword() && validateretypepassword())
+        {
+            String name = fullname.getEditText().getText().toString().trim();
+            String userinput = username.getEditText().getText().toString().trim();
+            String useremail = email.getEditText().getText().toString().trim();
+            String userpassword = getpassword.getEditText().getText().toString().trim();
+            new UserData(name,userinput,useremail,userpassword);
+            Toast.makeText(SignUp.this, name+"\n"+userinput+"\n"+useremail+"\n"+userpassword, Toast.LENGTH_SHORT).show();
+        }
 
     }
 
