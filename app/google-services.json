@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "700101153041",
+    "firebase_url": "https://splashscreenlogin-ee06d.firebaseio.com",
+    "project_id": "splashscreenlogin-ee06d",
+    "storage_bucket": "splashscreenlogin-ee06d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700101153041:android:5185477140fe48e0b47cb0",
+        "android_client_info": {
+          "package_name": "com.example.splashscreenlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700101153041-p4roigcvamdc54t2qg2m91nkib2mqckn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9IUbo68mdV4H1FPK0Nl9QLqfQHWDnas0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700101153041-p4roigcvamdc54t2qg2m91nkib2mqckn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
