@@ -25,7 +25,7 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static int TIMEOUT=2700;
+    private static int TIMEOUT=2800;
 
     Animation top,bottom;
     ImageView image;
